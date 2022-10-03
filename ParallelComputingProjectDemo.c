@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 static const int size = 10;
 int world[size][size];
 int futureWorld[size][size];
@@ -9,8 +10,28 @@ void createWorld(int world[size][size]);
 void createFutureWorld(int world[size][size]);
 void printWorld();
 void updateFutureWorld(int world[size][size],int futureWorld[size][size],int infectedCount);
+void writeWorldToFile(int world[size][size]);
 
 int main(){
+    //w - write
+    //r - read
+    //a - append
+   /*  FILE *fp;
+    fp = fopen("Worlds.txt", "a");
+    fprintf(fp, "test2 \n");
+    fclose(fp);
+
+    FILE *fp1;
+    fp1 = fopen("Worlds.txt", "r");
+    char singleLine[150];
+    //feof = file end of file
+    //While pointer not at end of file
+    while(!feof(fp1)){
+        fgets(singleLine, 150, fp1);
+        puts(singleLine);
+    }
+    fclose(fp1); */
+
     srand(time(0));
     int infectedCount = 0;
     createWorld(world);
@@ -20,6 +41,7 @@ int main(){
     updateFutureWorld(world,futureWorld,infectedCount);
     printf("\n\n Future World \n\n");
     printWorld(futureWorld);
+    writeWorldToFile(world);
 
     return 0;
 }
@@ -61,6 +83,24 @@ void createFutureWorld(int world[size][size]){
     }
 }
 
+void writeWorldToFile(int world[size][size]){
+    FILE *fp;
+    fp = fopen("Worlds.txt", "w");
+    for(int i = 0;i<size;i++){
+        for(int j=0;j<size;j++){
+            if(j==size-1){
+                //Print new line
+                fprintf(fp, "%d \n",world[i][j]);
+               // putw(world[i][j], fp);
+            }
+            else{
+               fprintf(fp, "%d ",world[i][j]);
+              // putw(world[i][j], fp);
+            }
+        }
+    }
+    fclose(fp);
+}
 
 void updateFutureWorld(int curWorld[size][size], int futWorld[size][size], int infectedCount){
     int cellNo =0;
