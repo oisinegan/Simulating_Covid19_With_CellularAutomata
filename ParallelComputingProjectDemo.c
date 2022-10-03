@@ -10,7 +10,10 @@ void createWorld(int world[size][size]);
 void createFutureWorld(int world[size][size]);
 void printWorld();
 void updateFutureWorld(int world[size][size],int futureWorld[size][size],int infectedCount);
-void writeWorldToFile(int world[size][size]);
+void writeWorldToTempFile(int world[size][size]);
+void writeWorldToLongFile(int world[size][size]);
+void readWorldToTempFile(int world[size][size]);
+
 
 int main(){
     //w - write
@@ -41,7 +44,8 @@ int main(){
     updateFutureWorld(world,futureWorld,infectedCount);
     printf("\n\n Future World \n\n");
     printWorld(futureWorld);
-    writeWorldToFile(world);
+    writeWorldToTempFile(world);
+    writeWorldToLongFile(world);
 
     return 0;
 }
@@ -83,7 +87,7 @@ void createFutureWorld(int world[size][size]){
     }
 }
 
-void writeWorldToFile(int world[size][size]){
+void writeWorldToTempFile(int world[size][size]){
     FILE *fp;
     fp = fopen("Worlds.txt", "w");
     for(int i = 0;i<size;i++){
@@ -99,6 +103,25 @@ void writeWorldToFile(int world[size][size]){
             }
         }
     }
+    fclose(fp);
+}
+void writeWorldToLongFile(int world[size][size]){
+    FILE *fp;
+    fp = fopen("WorldsFull.txt", "a");
+    for(int i = 0;i<size;i++){
+        for(int j=0;j<size;j++){
+            if(j==size-1){
+                //Print new line
+                fprintf(fp, "%d \n",world[i][j]);
+               // putw(world[i][j], fp);
+            }
+            else{
+               fprintf(fp, "%d ",world[i][j]);
+              // putw(world[i][j], fp);
+            }
+        }
+    }
+     fprintf(fp, "\n \n");
     fclose(fp);
 }
 
