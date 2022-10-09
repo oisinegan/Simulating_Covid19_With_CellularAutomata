@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 
-static const int size = 10;
+static const int size = 5;
 int world[size][size];
+int test[10][10];
+
 int futureWorld[size][size];
 void createWorld(int world[size][size]);
 void createFutureWorld(int world[size][size]);
@@ -12,19 +15,34 @@ void printWorld();
 void updateFutureWorld(int world[size][size],int futureWorld[size][size],int infectedCount);
 void writeWorldToTempFile(int world[size][size]);
 void writeWorldToLongFile(int world[size][size]);
-void readWorldToTempFile(int world[size][size]);
+void readWorldFromTempFile(int world[size][size]);
 
 
 int main(){
     //w - write
     //r - read
     //a - append
-   /*  FILE *fp;
+    /*
+    FILE *fp;
     fp = fopen("Worlds.txt", "a");
     fprintf(fp, "test2 \n");
-    fclose(fp);
+    fclose(fp); */
 
-    FILE *fp1;
+
+    srand(time(0));
+    int infectedCount = 0;
+    createWorld(world);
+    createFutureWorld(futureWorld);
+  //  printf("Current World \n\n");
+   // printWorld(world);
+    updateFutureWorld(world,futureWorld,infectedCount);
+  //  printf("\n\n Future World \n\n");
+   // printWorld(futureWorld);
+    writeWorldToTempFile(world);
+    writeWorldToLongFile(world);
+   readWorldFromTempFile(world);
+
+  /* FILE *fp1;
     fp1 = fopen("Worlds.txt", "r");
     char singleLine[150];
     //feof = file end of file
@@ -33,19 +51,7 @@ int main(){
         fgets(singleLine, 150, fp1);
         puts(singleLine);
     }
-    fclose(fp1); */
-
-    srand(time(0));
-    int infectedCount = 0;
-    createWorld(world);
-    createFutureWorld(futureWorld);
-    printf("Current World \n\n");
-    printWorld(world);
-    updateFutureWorld(world,futureWorld,infectedCount);
-    printf("\n\n Future World \n\n");
-    printWorld(futureWorld);
-    writeWorldToTempFile(world);
-    writeWorldToLongFile(world);
+    fclose(fp1);  */
 
     return 0;
 }
@@ -53,8 +59,8 @@ int main(){
 void createWorld(int array[size][size]){
     //Generate random positions for infected cell
     srand(time(0));
-   int x = rand()% 9; 
-   int y = rand()% 9; 
+   int x = rand()% 5; 
+   int y = rand()% 5; 
     printf("Row: %d, Col: %d",x,y);
     printf("\n");
     //fill array
@@ -94,17 +100,39 @@ void writeWorldToTempFile(int world[size][size]){
         for(int j=0;j<size;j++){
             if(j==size-1){
                 //Print new line
-                fprintf(fp, "%d \n",world[i][j]);
+                fprintf(fp, "%d\n",world[i][j]);
                // putw(world[i][j], fp);
             }
             else{
-               fprintf(fp, "%d ",world[i][j]);
+               fprintf(fp, "%d",world[i][j]);
               // putw(world[i][j], fp);
             }
         }
     }
     fclose(fp);
 }
+void readWorldFromTempFile(int world[size][size]){
+    FILE *fp1;
+    fp1 = fopen("Worlds.txt", "r");
+    int numbers[25];
+    int i = 0;
+    
+    while (fscanf(fp1, "%d", &numbers[i]) != EOF)
+    {
+      i++;
+    }
+    fclose(fp1);
+
+    numbers[i] = '\0';
+
+    for (i = 0; numbers[i] != '\0'; i++){
+      printf("%d\n", numbers[i]);
+    }
+
+    printf("g\n");
+    fclose(fp1); 
+}
+
 void writeWorldToLongFile(int world[size][size]){
     FILE *fp;
     fp = fopen("WorldsFull.txt", "a");
@@ -302,9 +330,9 @@ void updateFutureWorld(int curWorld[size][size], int futWorld[size][size], int i
                         //Check if random number is less than percentage chance of cell becoming infected
                         int randomNumber = (rand() % 100) + 1;
                         cellNo++;
-                        printf("\n\n Cell number = %d \n",cellNo);
-                        printf("\n Random number = %d \n",randomNumber);
-                        printf("\n Infected count = %d \n\n",infectedCount);
+                    //    printf("\n\n Cell number = %d \n",cellNo);
+                      //  printf("\n Random number = %d \n",randomNumber);
+                        //printf("\n Infected count = %d \n\n",infectedCount);
 
                         if(infectedCount == 1){
                             if(randomNumber < infectedChance1){
