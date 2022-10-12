@@ -1,13 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
 #include "functions.h"
 
-void createFutureWorld(int curWorld[size][size],int futureWorld[size][size]){
+void createFutureWorld(struct cell curWorld[size][size],struct cell futureWorld[size][size]){
      for(int i =0;i<size;i++){
         for(int j = 0; j<size;j++){
-            futureWorld[i][j] = curWorld[i][j];
+            //Make all cells = current world
+            futureWorld[i][j].cellState = curWorld[i][j].cellState;
         }
     }
 }

@@ -1,0 +1,6 @@
+Total Susceptible Exposed Infected Recovered Dead
+100    99         0       1        0         0
+100    99         0       1        0         0
+100    97         2       1        0         0
+100    97         2       1        0         0
+100    97         2       1        0         0

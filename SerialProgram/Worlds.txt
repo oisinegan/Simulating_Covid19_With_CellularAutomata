@@ -1,0 +1,30 @@
+Initial world
+
+S S S S S S S S S S
+S S I S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+
+
+
+
+Generation number: 0 
+
+S S S S S S S S S S
+S S I S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+
+

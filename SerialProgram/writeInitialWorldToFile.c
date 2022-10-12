@@ -1,9 +1,9 @@
 #include "functions.h"
 
-void writeWorldToFile(struct cell world[size][size], int gen){
+void writeInitialWorldToFile(struct cell world[size][size]){
     FILE *fp;
-    fp = fopen("Worlds.txt", "a");
-    fprintf(fp, "\n\nGeneration number: %i \n\n", gen);
+    fp = fopen("Worlds.txt", "w");
+    fprintf(fp, "Initial world\n\n");
     for(int i = 0;i<size;i++){
         for(int j=0;j<size;j++){
             if(j==size-1){
