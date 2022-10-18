@@ -1,9 +1,9 @@
 Initial world
 
 S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
 S S I S S S S S S S
-S S S S S S S S S S
-S S S S S S S S S S
 S S S S S S S S S S
 S S S S S S S S S S
 S S S S S S S S S S
@@ -17,12 +17,92 @@ S S S S S S S S S S
 Generation number: 0 
 
 S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
 S S I S S S S S S S
 S S S S S S S S S S
 S S S S S S S S S S
 S S S S S S S S S S
 S S S S S S S S S S
 S S S S S S S S S S
+S S S S S S S S S S
+
+
+
+
+Generation number: 5 
+
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S I S S S S S S S
+S E S E S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+
+
+
+
+Generation number: 10 
+
+S S S S S S S S S S
+S S S S S S S S S S
+S E S I S S S S S S
+S S I S S S S S S S
+E I I I S S S S S S
+S S S E S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+
+
+
+
+Generation number: 15 
+
+S S S S S S S S S S
+S S S S S S S S S S
+S I I I I S S S S S
+I S R I S S S S S I
+I I I D I S S S S S
+I S S I S S S S S I
+S S E S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+
+
+
+
+Generation number: 20 
+
+S S S S S S S S S S
+S I E S S S S S S S
+I I I I I I S S I I
+I E R I S S S S I I
+I I D D I S S S S I
+I E S I E S S E I I
+I S I E E S S S S E
+S S S S S S S S S S
+S S S S S S S S S S
+S S S S S S S S S S
+
+
+
+
+Generation number: 25 
+
+S S S S S S S S S S
+I I I S S I S S S S
+I I I R I I I I I I
+I I R D E S S I I I
+I R D D I S S S I I
+I I S I I S S I I I
+I I I I I E S E I I
 S S S S S S S S S S
 S S S S S S S S S S
 S S S S S S S S S S
