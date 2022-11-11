@@ -4,7 +4,6 @@ void writeWorldToFile(struct cell world[size][size], int gen)
 {
     FILE *fp;
     fp = fopen("Worlds.txt", "a");
-    fprintf(fp, "\n\nGeneration number: %i \n\n", gen);
     for (int i = 0; i < size; i++)
     {
         for (int j = 0; j < size; j++)
@@ -16,10 +15,10 @@ void writeWorldToFile(struct cell world[size][size], int gen)
             }
             else
             {
-                fprintf(fp, "%c ", world[i][j].cellState);
+                fprintf(fp, "%c", world[i][j].cellState);
             }
         }
     }
-    fprintf(fp, "\n\n");
+    fprintf(fp, "\n");
     fclose(fp);
 }

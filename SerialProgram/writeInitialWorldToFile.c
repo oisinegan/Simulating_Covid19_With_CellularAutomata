@@ -4,7 +4,6 @@ void writeInitialWorldToFile(struct cell world[size][size])
 {
     FILE *fp;
     fp = fopen("Worlds.txt", "w");
-    fprintf(fp, "Initial world\n\n");
     for (int i = 0; i < size; i++)
     {
         for (int j = 0; j < size; j++)
@@ -16,10 +15,10 @@ void writeInitialWorldToFile(struct cell world[size][size])
             }
             else
             {
-                fprintf(fp, "%c ", world[i][j].cellState);
+                fprintf(fp, "%c", world[i][j].cellState);
             }
         }
     }
-    fprintf(fp, "\n\n");
+    fprintf(fp, "\n");
     fclose(fp);
 }

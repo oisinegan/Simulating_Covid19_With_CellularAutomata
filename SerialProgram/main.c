@@ -2,6 +2,7 @@
 
 int main()
 {
+    clock_t t = clock();
     int infectedCount = 0;
     int susceptible = 0;
     int exposed = 0;
@@ -18,12 +19,12 @@ int main()
 
     for (int i = 0; i < generationNumber; i++)
     {
-        printf("\n\nGeneration %i \n\n", i);
+        // printf("\n\nGeneration %i \n\n", i + 1);
         updateFutureWorld(world, futureWorld, infectedCount);
         updateCurWorld(world, futureWorld);
         updateCellStruct(world);
         copyCurWorldToFutureWorld(world, futureWorld);
-        printWorld(world);
+        // printWorld(world);
         printf("\n");
         // Every 5th gen - write world to file
         if (i % numWriteToFile == 0)
@@ -36,5 +37,8 @@ int main()
         // Set SEIRD numbers back to 0 for next iteration
         susceptible = 0, exposed = 0, infected = 0, recovered = 0, dead = 0;
     }
+    t = clock() - t;
+    double time_taken = ((double)t) / CLOCKS_PER_SEC; // calculate the elapsed time
+    printf("\n\nThe program took %f seconds to execute", time_taken);
     return 0;
 }

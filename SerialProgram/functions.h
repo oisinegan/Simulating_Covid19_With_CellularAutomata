@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <time.h>
 
 // Size of world (size*size)
 #define size 10
@@ -30,7 +31,7 @@
 #define generationNumber 30
 
 // define how often to write world to file
-#define numWriteToFile 5
+#define numWriteToFile 1
 
 // Cell structure
 struct cell
