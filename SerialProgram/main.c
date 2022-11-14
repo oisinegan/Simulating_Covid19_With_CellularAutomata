@@ -32,7 +32,7 @@ int main()
             writeWorldToFile(world, i);
         }
         countSEIRDnumbers(world, &susceptible, &exposed, &infected, &recovered, &dead);
-        writeSEIRDnumbersToFile(susceptible, exposed, infected, recovered, dead);
+        writeSEIRDnumbersToFile(i, susceptible, exposed, infected, recovered, dead);
         printf("Total: %i, Susceptible: %i, Exposed: %i, Infected: %i, Recovered: %i, Dead: %i", size * size, susceptible, exposed, infected, recovered, dead);
         // Set SEIRD numbers back to 0 for next iteration
         susceptible = 0, exposed = 0, infected = 0, recovered = 0, dead = 0;

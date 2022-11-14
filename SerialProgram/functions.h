@@ -5,7 +5,13 @@
 #include <time.h>
 
 // Size of world (size*size)
-#define size 10
+#define size 50
+
+// How many times program runs
+#define generationNumber 100
+
+// define how often to write world to file
+#define numWriteToFile 5
 
 // Days for transform
 #define EXPOSED_TO_INFECTED 3
@@ -26,12 +32,6 @@
 #define infectedChance6 (6.0 / 8.0) * 100
 #define infectedChance7 (7.0 / 8.0) * 100
 #define infectedChance8 95.0
-
-// How many times program runs
-#define generationNumber 30
-
-// define how often to write world to file
-#define numWriteToFile 1
 
 // Cell structure
 struct cell
